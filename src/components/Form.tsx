@@ -29,7 +29,7 @@ const Form: React.FC = () => {
 
   const fetchData = async () => {
     setProfileStatus({ type: 'loading' });
-    const formattedBattleTag = battleTag.replace('#', '-');
+    const formattedBattleTag = battleTag.replace('#', '-').trim();
 
     const response = await fetch(
       `https://ow-api.com/v1/stats/pc/eu/${formattedBattleTag}/profile`
