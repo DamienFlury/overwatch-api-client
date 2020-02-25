@@ -1,5 +1,5 @@
 export default interface Profile {
-  competitiveStats: CompetitiveStatsOrQuickPlayStats;
+  competitiveStats: GameStats;
   endorsement: number;
   endorsementIcon: string;
   gamesWon: number;
@@ -10,12 +10,12 @@ export default interface Profile {
   prestige: number;
   prestigeIcon: string;
   private: boolean;
-  quickPlayStats: CompetitiveStatsOrQuickPlayStats;
+  quickPlayStats: GameStats;
   rating: number;
   ratingIcon: string;
   ratings?: RatingsEntity[] | null;
 }
-export interface CompetitiveStatsOrQuickPlayStats {
+export interface GameStats {
   awards: Awards;
   games: Games;
 }
