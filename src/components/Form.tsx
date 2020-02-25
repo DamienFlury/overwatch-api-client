@@ -39,13 +39,20 @@ const Form: React.FC = () => {
     setProfileStatus({ type: 'loading' });
     const formattedBattleTag = battleTag.replace('#', '-').trim();
 
-    const response = await fetch(
-      `https://ow-api.com/v1/stats/pc/eu/${formattedBattleTag}/profile`
-    );
+    try {
+      const response = await fetch(
+        `https://ow-api.com/v1/stats/pc/eu/${formattedBattleTag}/profile`
+      );
 
-    const data: Profile = await response.json();
-
-    setProfileStatus({ type: 'success', data });
+      const data: any = await response.json();
+      if (data.error) {
+        setProfileStatus({ type: 'error', message: data.error });
+      } else {
+        setProfileStatus({ type: 'success', data });
+      }
+    } catch (e) {
+      setProfileStatus({ type: 'error', message: e });
+    }
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -76,6 +83,8 @@ const Form: React.FC = () => {
                 <Spinner />
               </Center>
             );
+          case 'error':
+            return <div>Error: {profileStatus.message}</div>;
           default:
             return null;
         }

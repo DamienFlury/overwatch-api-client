@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { Pie } from 'react-chartjs-2';
 import Profile from '../@types/Profile';
 import Paper from '../styled-components/Paper';
 import Typography from '../styled-components/Typography';
@@ -31,7 +32,9 @@ const PrestigeIcon = styled(Icon)`
   margin-top: -65px;
 `;
 
-const AnimatedPaper = motion.custom(Paper);
+const Chart = styled.div`
+  width: 200px;
+`;
 
 type Props = {
   profile: Profile;
@@ -52,10 +55,29 @@ const ProfileView: React.FC<Props> = ({ profile }) => {
         </IconGroup>
         <Typography variant="h3">{profile.name}</Typography>
       </Title>
-      <Typography>Games won: {profile.competitiveStats.games.won}</Typography>
+      <Typography variant="h3">Competetive</Typography>
       <Typography>
         Games played: {profile.competitiveStats.games.played}
       </Typography>
+      <Chart>
+        <Pie
+          width={100}
+          data={{
+            labels: ['Won', 'Lost'],
+            datasets: [
+              {
+                data: [
+                  profile.competitiveStats.games.won,
+                  profile.competitiveStats.games.played -
+                    profile.competitiveStats.games.won
+                ],
+                backgroundColor: ['#00ad3f', '#ad000e'],
+                hoverBackgroundColor: ['#00ad3f', '#ad000e']
+              }
+            ]
+          }}
+        />
+      </Chart>
     </Paper>
   );
 };
