@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 const MainBox = styled.div`
   padding: 20px;
   box-shadow: ${props => props.theme.shadows[0]};
+  background: ${props => props.theme.colors.background[0]};
 `;
 
 const OptionBox = styled.div`
