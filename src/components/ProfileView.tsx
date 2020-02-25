@@ -13,6 +13,16 @@ const Title = styled.div`
   margin-bottom: 20px;
 `;
 
+const CompetitiveQuickPlayWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -40px;
+`;
+
+const CompetitiveQuickPlayColumn = styled.div`
+  margin: 0 40px;
+`;
+
 const IconGroup = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,6 +46,36 @@ const Chart = styled.div`
   width: 200px;
 `;
 
+type GamemodeStatsProps = {
+  won: number;
+  played: number;
+};
+
+const GamemodeStats: React.FC<GamemodeStatsProps> = ({ won, played }) => {
+  const lost = played - won;
+
+  return (
+    <>
+      <Typography>Games played: {played}</Typography>
+      <Chart>
+        <Pie
+          width={100}
+          data={{
+            labels: ['Won', 'Lost'],
+            datasets: [
+              {
+                data: [won, lost],
+                backgroundColor: ['#00ad3f', '#ad000e'],
+                hoverBackgroundColor: ['#00ad3f', '#ad000e']
+              }
+            ]
+          }}
+        />
+      </Chart>
+    </>
+  );
+};
+
 type Props = {
   profile: Profile;
 };
@@ -55,29 +95,22 @@ const ProfileView: React.FC<Props> = ({ profile }) => {
         </IconGroup>
         <Typography variant="h3">{profile.name}</Typography>
       </Title>
-      <Typography variant="h3">Competetive</Typography>
-      <Typography>
-        Games played: {profile.competitiveStats.games.played}
-      </Typography>
-      <Chart>
-        <Pie
-          width={100}
-          data={{
-            labels: ['Won', 'Lost'],
-            datasets: [
-              {
-                data: [
-                  profile.competitiveStats.games.won,
-                  profile.competitiveStats.games.played -
-                    profile.competitiveStats.games.won
-                ],
-                backgroundColor: ['#00ad3f', '#ad000e'],
-                hoverBackgroundColor: ['#00ad3f', '#ad000e']
-              }
-            ]
-          }}
-        />
-      </Chart>
+      <CompetitiveQuickPlayWrapper>
+        <CompetitiveQuickPlayColumn>
+          <Typography variant="h3">Competitive</Typography>
+          <GamemodeStats
+            won={profile.competitiveStats.games.won}
+            played={profile.competitiveStats.games.played}
+          />
+        </CompetitiveQuickPlayColumn>
+        <CompetitiveQuickPlayColumn>
+          <Typography variant="h3">Quick Play</Typography>
+          <GamemodeStats
+            won={profile.quickPlayStats.games.won}
+            played={profile.quickPlayStats.games.played}
+          />
+        </CompetitiveQuickPlayColumn>
+      </CompetitiveQuickPlayWrapper>
     </Paper>
   );
 };
