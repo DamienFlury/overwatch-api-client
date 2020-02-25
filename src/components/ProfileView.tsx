@@ -15,14 +15,20 @@ const Title = styled.div`
 const IconGroup = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const Icon = styled.img`
   width: 200px;
 `;
 
-const PrestigeIcon = styled(Icon)`
+const RatingIcon = styled(Icon)`
+  width: 50px;
   margin-top: -80px;
+`;
+
+const PrestigeIcon = styled(Icon)`
+  margin-top: -65px;
 `;
 
 const AnimatedPaper = motion.custom(Paper);
@@ -41,6 +47,7 @@ const ProfileView: React.FC<Props> = ({ profile }) => {
       <Title>
         <IconGroup>
           <Icon src={profile.levelIcon} />
+          <RatingIcon src={profile.ratingIcon} />
           <PrestigeIcon src={profile.prestigeIcon} />
         </IconGroup>
         <Typography variant="h3">{profile.name}</Typography>
