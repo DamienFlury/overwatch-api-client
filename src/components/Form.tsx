@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import TextField from '../styled-components/TextField';
 import Paper from '../styled-components/Paper';
 import Button from '../styled-components/Button';
 import ProfileView from './ProfileView';
 import Profile from '../@types/Profile';
+import Spinner from '../styled-components/Spinner';
 
 type Status<T> =
   | {
@@ -20,6 +23,11 @@ type Status<T> =
       type: 'error';
       message: string;
     };
+
+const Center = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+`;
 
 const Form: React.FC = () => {
   const [battleTag, setBattleTag] = useState('');
@@ -60,7 +68,14 @@ const Form: React.FC = () => {
           case 'success':
             return <ProfileView profile={profileStatus.data} />;
           case 'loading':
-            return <p>Loading...</p>;
+            return (
+              <Center
+                style={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+              >
+                <Spinner />
+              </Center>
+            );
           default:
             return null;
         }

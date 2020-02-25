@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Profile from '../@types/Profile';
 import Paper from '../styled-components/Paper';
+import Typography from '../styled-components/Typography';
 
 const Title = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin-bottom: 20px;
 `;
@@ -41,10 +43,12 @@ const ProfileView: React.FC<Props> = ({ profile }) => {
           <Icon src={profile.levelIcon} />
           <PrestigeIcon src={profile.prestigeIcon} />
         </IconGroup>
-        <h2>{profile.name}</h2>
+        <Typography variant="h3">{profile.name}</Typography>
       </Title>
-      <div>Games won: {profile.competitiveStats.games.won}</div>
-      <div>Games played: {profile.competitiveStats.games.played}</div>
+      <Typography>Games won: {profile.competitiveStats.games.won}</Typography>
+      <Typography>
+        Games played: {profile.competitiveStats.games.played}
+      </Typography>
     </Paper>
   );
 };

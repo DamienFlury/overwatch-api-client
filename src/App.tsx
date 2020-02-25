@@ -1,7 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
-import Paper from './styled-components/Paper';
+import styled, { createGlobalStyle } from 'styled-components';
+import Typography from './styled-components/Typography';
 import Form from './components/Form';
+import Spinner from './styled-components/Spinner';
+
+const GlobalStyle = createGlobalStyle`
+`;
 
 const Wrapper = styled.div`
   background: ${props => props.theme.colors.background[0]};
@@ -12,10 +16,15 @@ const Wrapper = styled.div`
 
 function App() {
   return (
-    <Wrapper>
-      <h1>Overwatch</h1>
-      <Form />
-    </Wrapper>
+    <>
+      <GlobalStyle />
+      <Wrapper>
+        <Typography style={{ margin: 20 }} variant="h1">
+          Overwatch
+        </Typography>
+        <Form />
+      </Wrapper>
+    </>
   );
 }
 
