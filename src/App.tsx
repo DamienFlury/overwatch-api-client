@@ -29,7 +29,7 @@ function App() {
         </Typography>
         <Form />
         <Footer>
-          &copy; 2020. Overwatch &copy; 2017 Blizzard Entertainment.
+          &copy; 2020. Overwatch &copy; 2020 Blizzard Entertainment.
         </Footer>
       </Wrapper>
     </>
