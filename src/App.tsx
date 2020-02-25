@@ -14,6 +14,11 @@ const Wrapper = styled.div`
   color: ${props => props.theme.colors.text};
 `;
 
+const Footer = styled.footer`
+  color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+`;
+
 function App() {
   return (
     <>
@@ -23,6 +28,9 @@ function App() {
           Overwatch
         </Typography>
         <Form />
+        <Footer>
+          &copy; 2020. Overwatch &copy; 2017 Blizzard Entertainment.
+        </Footer>
       </Wrapper>
     </>
   );
