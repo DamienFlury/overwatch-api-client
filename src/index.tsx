@@ -10,7 +10,8 @@ const theme: DefaultTheme = {
     background: ['#121212', '#232323'],
     primary: ['#19b2ff'],
     secondary: ['#19b2ff']
-  }
+  },
+  shadows: ['0 2px 3px rgba(0, 0, 0, 0.5)']
 };
 
 ReactDOM.render(
