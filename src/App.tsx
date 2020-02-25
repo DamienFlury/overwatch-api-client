@@ -29,9 +29,8 @@ function App() {
         </Typography>
         <Form />
         <Footer>
-          &copy; 2020 Overwatch Api Client. <br /> &copy; 2017 - 2019 Ow-API.
-          <br />
-          Overwatch &copy; 2020 Blizzard Entertainment.
+          &copy; 2020 Overwatch Api Client. &copy; 2017 - 2019 Ow-API. Overwatch
+          &copy; 2020 Blizzard Entertainment.
         </Footer>
       </Wrapper>
     </>
