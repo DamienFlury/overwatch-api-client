@@ -5,6 +5,7 @@ import { Pie } from 'react-chartjs-2';
 import Profile from '../@types/Profile';
 import Paper from '../styled-components/Paper';
 import Typography from '../styled-components/Typography';
+import capitalizeFirstLetter from '../utils/string-functions';
 
 const Title = styled.div`
   display: flex;
@@ -111,6 +112,17 @@ const ProfileView: React.FC<Props> = ({ profile }) => {
           />
         </CompetitiveQuickPlayColumn>
       </CompetitiveQuickPlayWrapper>
+      <Typography variant="h3">Roles</Typography>
+      <div>
+        {profile.ratings?.map(rating => (
+          <div>
+            <Typography variant="h4">
+              {capitalizeFirstLetter(rating.role)}
+            </Typography>
+            <Typography>{rating.level}</Typography>
+          </div>
+        ))}
+      </div>
     </Paper>
   );
 };

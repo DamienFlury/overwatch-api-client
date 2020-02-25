@@ -8,6 +8,7 @@ const TextField = styled.input`
   padding: 8px 0;
   outline: none;
   transition: 0.5s;
+  font-family: 'Montserrat';
 
   &:focus {
     color: ${props => props.theme.colors.text};

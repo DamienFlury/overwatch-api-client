@@ -13,6 +13,8 @@ const translateVariantToFontSize = (variant?: Variant) => {
       return '2.5rem';
     case 'h3':
       return '2rem';
+    case 'h4':
+      return '1.6rem';
     default:
       return '1rem';
   }
