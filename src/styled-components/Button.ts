@@ -8,6 +8,12 @@ const Button = styled.button`
   border: none;
   border-radius: ${props => props.theme.borderRadius};
   text-transform: uppercase;
+  box-shadow: ${props => props.theme.shadows[0]};
+  transition: box-shadow 0.2s;
+  outline: none;
+  &:active {
+    box-shadow: ${props => props.theme.shadows[1]};
+  }
 `;
 
 export default Button;

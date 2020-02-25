@@ -13,7 +13,7 @@ const theme: DefaultTheme = {
     text: '#ffffff',
     inactive: 'rgba(255, 255, 255, 0.8)'
   },
-  shadows: ['0 2px 3px rgba(0, 0, 0, 0.5)']
+  shadows: ['0 2px 3px rgba(0, 0, 0, 0.5)', '0 4px 5px rgba(0, 0, 0, 0.5)']
 };
 
 ReactDOM.render(
