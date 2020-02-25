@@ -11,7 +11,7 @@ const Button = styled.button`
   box-shadow: ${props => props.theme.shadows[0]};
   transition: box-shadow 0.2s;
   outline: none;
-  font-family: 'Montserrat'
+  font-family: 'Montserrat';
   &:active {
     box-shadow: ${props => props.theme.shadows[1]};
   }
