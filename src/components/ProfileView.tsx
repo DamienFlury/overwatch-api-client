@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Profile from '../@types/Profile';
 import Paper from '../styled-components/Paper';
 
@@ -22,13 +23,19 @@ const PrestigeIcon = styled(Icon)`
   margin-top: -80px;
 `;
 
+const AnimatedPaper = motion.custom(Paper);
+
 type Props = {
   profile: Profile;
 };
 
 const ProfileView: React.FC<Props> = ({ profile }) => {
   return (
-    <Paper>
+    <Paper
+      style={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       <Title>
         <IconGroup>
           <Icon src={profile.levelIcon} />
