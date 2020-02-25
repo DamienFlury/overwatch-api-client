@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   background: ${props => props.theme.colors.background[0]};
   min-height: 100vh;
   overflow: auto;
-  color: white;
+  color: ${props => props.theme.colors.text};
 `;
 
 function App() {
