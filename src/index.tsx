@@ -9,7 +9,9 @@ const theme: DefaultTheme = {
   colors: {
     background: ['#121212', '#232323'],
     primary: ['#19b2ff'],
-    secondary: ['#19b2ff']
+    secondary: ['#19b2ff'],
+    text: '#ffffff',
+    inactive: 'rgba(255, 255, 255, 0.8)'
   },
   shadows: ['0 2px 3px rgba(0, 0, 0, 0.5)']
 };
